@@ -3,7 +3,9 @@ require.config({
   paths : {
     jquery : 'jquery/jquery',
     cookie : 'jquery-cookie/jquery.cookie',
+    template:'artTemplate/template-web',
     common : '../js/common',
-    login : '../js/login'
+    login : '../js/login',
+    teacherlist:'../js/teacherlist'
   }
 });
