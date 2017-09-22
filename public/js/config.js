@@ -5,9 +5,12 @@ require.config({
     cookie : 'jquery-cookie/jquery.cookie',
     template:'artTemplate/template-web',
     bootstrap:'bootstrap/js/bootstrap.min',
+    util:'../js/util',
     common : '../js/common',
     login : '../js/login',
-    teacherlist:'../js/teacherlist'
+    teacherlist:'../js/teacherlist',
+    teacheradd:'../js/teacheradd'
+    
   },
   shim:{
   	bootstrap:{
