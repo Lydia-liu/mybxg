@@ -29,7 +29,6 @@ define(['jquery', 'template', 'util','datepicker','language','validate','form'],
     	$('#teacherForm').validate({
     		sendForm:false,
     		valid:function(){
-    			
     			$(this).ajaxSubmit({
     				type:'post',
     				url:url,

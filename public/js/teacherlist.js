@@ -1,11 +1,16 @@
-define(['jquery', 'template','bootstrap'], function($, template) {
+define(['jquery', 'template','util','bootstrap'], function($, template,util) {
+   // console.log(location.pathname);
+   // 
+   //设置导航菜单选中
+ 
+ util.setMenu(location.pathname);
     //调用接口
     $.ajax({
         type: 'get',
         url: '/api/teacher',
         dataType: 'json',
         success: function(data) {
-            console.log(data)
+            //console.log(data)
             var html = template('teacherTpl', { list: data.result });
             $("#teacherInfo").html(html);
 

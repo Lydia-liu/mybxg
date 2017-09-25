@@ -1,4 +1,4 @@
-define(['jquery', 'template','ckeditor','uploadify','region','datepicker','language'], function($, template,CKEDITOR) {
+define(['jquery', 'template','ckeditor','uploadify','region','datepicker','language','validate','form'], function($, template,CKEDITOR) {
     //调用接口  获取个人信息
     $.ajax({
         type: 'get',
@@ -36,8 +36,27 @@ define(['jquery', 'template','ckeditor','uploadify','region','datepicker','langu
 						{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
 						{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] }
 					]
+            });
 
-            })
+            //处理表单提交
+           $('#settingsForm').validate({
+           	sendForm : false,
+           	valid:function(){
+           		$(this).ajaxSubmit({
+           			type:'post',
+           			url:'/api/teacher/modify',
+           			dateType:'json',
+           			success:function(data){
+           				if(data.code==200){
+           					//修改成功后重新刷新页面
+           					location.reload();
+           				}
+           			}
+           		})
+           	}
+
+           })
+
         }
 
     })

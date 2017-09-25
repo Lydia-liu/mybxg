@@ -15,6 +15,11 @@ define(['jquery'],function($){
 				})
 			};
 			return result;
+		},
+		//点击高亮显示
+		setMenu:function(path){
+			 $('.aside .navs a[href="'+path+'"]').addClass('active').closest('ul').show();
 		}
+
 	}
 })
