@@ -19,7 +19,10 @@ require.config({
     teacheradd:'../js/teacheradd',
     settings:'../js/settings',
     index:'../js/index',
-    courselist:'../js/courselist'
+    courselist:'../js/courselist',
+    courseadd:'../js/courseadd',
+    coursebasic:'../js/coursebasic'
+
 
   },
   shim:{
