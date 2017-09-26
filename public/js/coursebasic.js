@@ -1,4 +1,4 @@
-define(['jquery','template','util'],function($,template,util){
+define(['jquery','template','util','ckeditor'],function($,template,util,CKEDITOR){
 	util.setMenu('/course/add');
 	//获取课程ID
 	var csId=util.qs('cs_id');
@@ -21,6 +21,31 @@ define(['jquery','template','util'],function($,template,util){
 			console.log(data);
 			var html=template('basicTpl',data.result);
 			$('#basicInfo').html(html);
+
+			//处理二级分类下拉联动
+			$('#firstType').change(function(){
+				//一级分类ID
+				var pid=$(this).val();
+				//console.log(pid);
+				//根据一级分类ID 查询二级分类id
+				$.ajax({
+					type:"get",
+					url:'/api//category/child',
+					dataType:'json',
+					data:{cg_id:pid},
+					success:function(data){
+						console.log(data);
+						//拼接二级分类
+						var tpl='<option value="">请选择二级分类</option>{{each list}}<option value="{{$value.cg_id}}">{{$value.cg_name}}</option>{{/each}}';
+						var html=template.render(tpl,{list:data.result});
+						$('#secondForm').html(html);
+					}
+				})
+			});
+			//处理富文本
+			CKEDITOR.replace('ckeditor');
+			
+			 
 		}
 	})
 
