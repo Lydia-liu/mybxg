@@ -18,10 +18,9 @@ define(['jquery','template','util'],function($,template,util){
 			}else{
 				data.result.operate='课程添加';
 			}
-			//console.log(data);
+			console.log(data);
 			var html=template('basicTpl',data.result);
 			$('#basicInfo').html(html);
-
 		}
 	})
 
